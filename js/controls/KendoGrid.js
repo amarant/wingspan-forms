@@ -77,7 +77,8 @@ define([
 
         componentDidMount: function () {
             var $rootNode = $(this.getDOMNode());
-            var widgetOptions = _.defaults({
+            var widgetOptions = _.defaults(this.props.options,
+                {
                 autoBind: this.props.autoBind,
                 dataSource: this.props.dataSource,
                 height: this.props.height,
@@ -88,7 +89,7 @@ define([
                 scrollable: this.props.scrollable,
                 sortable: this.props.sortable,
                 dataBound: this.onGridDataBound
-            }, this.props.options);
+            });
 
             $rootNode.kendoGrid(widgetOptions);
         },
